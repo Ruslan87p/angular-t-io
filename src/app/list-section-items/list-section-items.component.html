@@ -1,0 +1,14 @@
+<div class="w-100 d-flex justify-content-between" *ngIf="animalsData">
+    <div>
+        <app-animal-type [animalsType]="animalsData" [isLength]="isLength" (itemType)="getTypeItem($event)"></app-animal-type>
+    </div>
+    <div>
+        <app-animal-color [animalsColor]="animalsData" [isLength]="isLength" (itemColor)="getTypeItem($event)"></app-animal-color>
+    </div>
+    <div>
+        <app-animal-weight [animalsWeight]="animalsData" [isLength]="isLength" (itemWeight)="getTypeItem($event)"></app-animal-weight>
+    </div>
+    <div>
+        <app-animal-length [animalsLength]="animalsData" [isLength]="isLength" (itemLength)="getTypeItem($event)"></app-animal-length>
+    </div>
+</div>

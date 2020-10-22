@@ -1,0 +1,72 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Animals App</a>
+        <div class="col-lg-9 d-flex">
+            <div class="col-lg-3">
+            <h4>
+                Animals - {{dataLength}}
+            </h4>
+            </div>
+            <div class="col-lg-3">
+                <div class="dropdown show">
+                    <a class="btn btn-outline-secondary dropdown-toggle"
+                        href="#" role="button"
+                        id="menuDropDown"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                      <b>Filter</b>
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="menuDropDown">
+                      <a class="dropdown-item" href="#">Some filter</a>
+                      <a class="dropdown-item" href="#">Some filter</a>
+                      <a class="dropdown-item" href="#">Some filter</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalWin">ADD ITEM</button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalWin" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="modal">Add new animal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+
+                                    <div class="form-group">
+                                        <label for="animType">Animal type</label>
+                                        <input type="text" class="form-control" id="animType">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="animColor">Animal color</label>
+                                        <input type="text" class="form-control" id="animColor">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="animWeight">Animal weight</label>
+                                        <input type="text" class="form-control" id="animWeight">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="animLength">Animal length</label>
+                                        <input type="text" class="form-control" id="animLength">
+                                    </div>
+                      
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                                  </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+</nav>

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'animals-app';
+
+  isLength;
+
+  getDataLength(event) {
+    this.isLength = event;
+    return this.isLength;
+  }
 }

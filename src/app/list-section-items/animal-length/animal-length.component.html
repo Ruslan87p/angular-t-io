@@ -1,0 +1,13 @@
+<div>
+    <h3 class="text-center w-100">Length: {{!isLength ? animalsLength.length : isLength}}</h3>
+</div>
+<div class="card mt-4">
+    <div class="card-body scroll">
+      <p class="m-0 pt-2 pb-2 onHover" 
+      *ngFor="let item of animalsLength; let o = odd; let e = even;" 
+      [ngClass]="{ odd: o, even: e, hilighted: item.active }"
+      (click)="typeItem(item)">
+        <span>{{item.length}}</span>
+      </p>
+    </div>
+  </div>

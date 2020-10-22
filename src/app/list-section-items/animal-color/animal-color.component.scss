@@ -1,0 +1,23 @@
+div.scroll {
+  padding: 4px;
+  height: 500px;
+  min-width: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+.odd {
+  background-color: #f7f7f7;
+}
+.even {
+  background-color: white;
+}
+.hilighted {
+  color: #2d2d2d;
+  font-weight: 600;
+  background-color: #d5ebff;
+}
+.onHover:hover {
+  background-color: #a7d4ff;
+  transition: ease-in all 100ms;
+}
