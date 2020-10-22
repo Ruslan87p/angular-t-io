@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-animal-color',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class AnimalColorComponent {
 
+  constructor(private apiSvc: ApiServiceService) {}
 
   @Input('animalsColor') animalsColor;
   @Output() itemColor:EventEmitter<any> = new EventEmitter();
@@ -18,16 +20,7 @@ export class AnimalColorComponent {
 
   typeItem(item) {
     this.elems = this.animalsColor.filter(el => el.type === item.type)
-
-    this.el = this.animalsColor.map(el => {
-      if (el.type === item.type) {
-        el['active'] = true;
-        this.length = this.animalsColor.length;
-      } else {
-        el['active'] = false;
-      }
-      return el;
-    })
+    this.apiSvc.getFilteredItems(item, this.animalsColor, this.length);
 
     this.length = this.elems.length;
     const arr = [this.el, this.length]

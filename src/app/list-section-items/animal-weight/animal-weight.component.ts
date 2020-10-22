@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-animal-weight',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class AnimalWeightComponent {
 
-  constructor() { }
+  constructor(private apiSvc: ApiServiceService) { }
   @Input('animalsWeight') animalsWeight;
   @Input('isLength') isLength;
   @Output() itemWeight:EventEmitter<any> = new EventEmitter();
@@ -18,16 +19,7 @@ export class AnimalWeightComponent {
 
   typeItem(item) {
     this.elems = this.animalsWeight.filter(el => el.type === item.type)
-    
-    this.el = this.animalsWeight.map(el => {
-      if (el.type === item.type) {
-        el['active'] = true;
-        this.length = this.animalsWeight.length;
-      } else {
-        el['active'] = false;
-      }
-      return el;
-    })
+    this.apiSvc.getFilteredItems(item, this.animalsWeight, this.length);
 
     this.length = this.elems.length;
     const arr = [this.el, this.length]

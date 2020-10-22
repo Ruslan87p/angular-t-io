@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-animal-type',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class AnimalTypeComponent {
 
-  constructor() { }
+  constructor(private apiSvc: ApiServiceService) { }
   @Input('animalsType') animalsType;
   @Input('isLength') isLength;
   @Output() itemType:EventEmitter<any> = new EventEmitter();
@@ -19,16 +20,7 @@ export class AnimalTypeComponent {
 
   typeItem(item) {
     this.elems = this.animalsType.filter(el => el.type === item.type)
-    
-    this.el = this.animalsType.map(el => {
-      if (el.type === item.type) {
-        el['active'] = true;
-        this.length = this.animalsType.length;
-      } else {
-        el['active'] = false;
-      }
-      return el;
-    })
+    this.apiSvc.getFilteredItems(item, this.animalsType, this.length);
 
     this.length = this.elems.length;
     const arr = [this.el, this.length]
