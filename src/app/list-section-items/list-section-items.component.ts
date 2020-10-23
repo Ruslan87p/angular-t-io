@@ -17,7 +17,11 @@ export class ListSectionItemsComponent implements OnInit {
   getTypeItem(e) {
     this.dataService.getAnimals()
     this.isLength = e[1];
+
+    console.log(e[0], 'event')
     this.dataLength.emit(this.isLength);
+
+    // this.dataLength.emit(e);
     return e;
   }
 
@@ -26,7 +30,7 @@ export class ListSectionItemsComponent implements OnInit {
     .subscribe((data)=>{
       this.dataLength.emit(data.length);
       this.isLength = data.length;
-      this.animalsData = data;    
+      this.animalsData = data;
     })  
 
   }

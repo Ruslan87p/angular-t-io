@@ -18,17 +18,6 @@ export class ApiServiceService {
 
   }
 
-  getFilteredItems(item, allItems, length) {
-    allItems.map(el => {
-      if (el.type === item.type) {
-        el['active'] = true;
-        length = allItems.length;
-      } else {
-        el['active'] = false;
-      }
-      return el;
-    })
-  }
 
   getAnimals(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/getAnimalsList')
