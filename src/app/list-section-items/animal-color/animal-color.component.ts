@@ -29,7 +29,6 @@ export class AnimalColorComponent {
       return el;
     })
 
-    console.log(this.elems);
     this.length = this.elems.length;
     const arr = [this.el, this.length]
     this.itemColor.emit(arr);

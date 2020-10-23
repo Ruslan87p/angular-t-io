@@ -18,10 +18,8 @@ export class ListSectionItemsComponent implements OnInit {
     this.dataService.getAnimals()
     this.isLength = e[1];
 
-    console.log(e[0], 'event')
     this.dataLength.emit(this.isLength);
 
-    // this.dataLength.emit(e);
     return e;
   }
 
